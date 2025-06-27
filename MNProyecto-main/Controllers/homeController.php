@@ -1,5 +1,5 @@
 <?php
-    include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Models/homeModel.php';
+    include_once $_SERVER["DOCUMENT_ROOT"] . '/MNProyecto-main/Models/homeModel.php';
 
 if(isset($_POST["btnIniciarSesion"]))
 {

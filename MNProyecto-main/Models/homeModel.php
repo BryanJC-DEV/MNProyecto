@@ -1,5 +1,5 @@
 <?php
-    include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Models/connect.php';
+    include_once $_SERVER["DOCUMENT_ROOT"] . '/MNProyecto-main/Models/connect.php';
 
     function ValidarInicioSesionModel($correo, $contrasenna)
     {
