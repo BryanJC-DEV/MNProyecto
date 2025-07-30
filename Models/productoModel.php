@@ -1,13 +1,13 @@
 <?php
     include_once $_SERVER["DOCUMENT_ROOT"] . '/MNProyecto/Models/connect.php';
 
-    function ConsultarInfoUsuarioModel($idUsuario)
+    function ConsultarProductosModel()
     {
         try
         {
             $context = OpenDB();
 
-            $sp = "CALL ConsultarInfoUsuario('$idUsuario')";
+            $sp = "CALL ConsultarProductos()";
             $respuesta = $context -> query($sp);
 
             CloseDB($context);            
@@ -20,13 +20,32 @@
         }
     }
 
-    function ActualizarPerfilUsuarioModel($idUsuario, $nombre, $correo, $identificacion)
+    function RegistrarProductoModel($nombre, $descripcion, $precio, $cantidad, $imagen)
     {
         try
         {
             $context = OpenDB();
 
-            $sp = "CALL ActualizarPerfilUsuario('$idUsuario', '$nombre', '$correo', '$identificacion')";
+            $sp = "CALL RegistrarProducto('$nombre', '$descripcion', '$precio', '$cantidad', '$imagen')";
+            $respuesta = $context -> query($sp);
+
+            CloseDB($context);            
+            return $respuesta;
+        }
+        catch(Exception $error)
+        {
+            RegistrarError($error);
+            return false;
+        }
+    }
+
+    function CambiarEstadoProductoModel($idProducto)
+    {
+        try
+        {
+            $context = OpenDB();
+
+            $sp = "CALL CambiarEstadoProducto('$idProducto')";
             $respuesta = $context -> query($sp);
 
             CloseDB($context);            

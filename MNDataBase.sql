@@ -29,7 +29,7 @@ CREATE TABLE `terror` (
   `Descripcion` varchar(5000) NOT NULL,
   `FechaHora` datetime NOT NULL,
   PRIMARY KEY (`IdError`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,8 +38,61 @@ CREATE TABLE `terror` (
 
 LOCK TABLES `terror` WRITE;
 /*!40000 ALTER TABLE `terror` DISABLE KEYS */;
-INSERT INTO `terror` VALUES (1,'PROCEDURE mndatabase.ValidarInicioSesion2 does not exist','2025-06-18 19:49:23'),(2,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:23'),(3,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:29'),(4,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:30'),(5,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:30'),(6,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:30'),(7,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:31'),(8,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:31'),(9,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:32'),(10,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:32'),(11,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:32'),(12,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:33'),(13,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:33'),(14,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:33'),(15,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:10:39'),(16,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:14:00');
+INSERT INTO `terror` VALUES (1,'PROCEDURE mndatabase.ValidarInicioSesion2 does not exist','2025-06-18 19:49:23'),(2,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:23'),(3,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:29'),(4,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:30'),(5,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:30'),(6,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:30'),(7,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:31'),(8,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:31'),(9,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:32'),(10,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:32'),(11,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:32'),(12,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:33'),(13,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:33'),(14,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:08:33'),(15,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:10:39'),(16,'Unknown column \'Identificacion2\' in \'field list\'','2025-06-18 20:14:00'),(17,'Unknown column \'pCorreo\' in \'field list\'','2025-07-09 19:01:06'),(18,'PROCEDURE mndatabase.ConsultarProductos does not exist','2025-07-16 18:30:23'),(19,'PROCEDURE mndatabase.ConsultarProductos does not exist','2025-07-16 18:30:25'),(20,'PROCEDURE mndatabase.ConsultarProductos does not exist','2025-07-16 18:30:26'),(21,'PROCEDURE mndatabase.ConsultarProductos does not exist','2025-07-16 18:30:30'),(22,'PROCEDURE mndatabase.ConsultarProductos does not exist','2025-07-16 18:30:33');
 /*!40000 ALTER TABLE `terror` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tproducto`
+--
+
+DROP TABLE IF EXISTS `tproducto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tproducto` (
+  `IdProducto` bigint(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(100) NOT NULL,
+  `Precio` decimal(10,2) NOT NULL,
+  `Descripcion` varchar(1000) NOT NULL,
+  `Cantidad` int(11) NOT NULL,
+  `Estado` bit(1) NOT NULL,
+  `Imagen` varchar(255) NOT NULL,
+  PRIMARY KEY (`IdProducto`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tproducto`
+--
+
+LOCK TABLES `tproducto` WRITE;
+/*!40000 ALTER TABLE `tproducto` DISABLE KEYS */;
+INSERT INTO `tproducto` VALUES (3,'PlayStation',120000.00,'Consola de videojuegos',6,_binary '','/Curso/Views/ImagenProductos/1.png'),(4,'PlayStation 5',220000.00,'Consolo más nueva',12,_binary '','/Curso/Views/ImagenProductos/2.png');
+/*!40000 ALTER TABLE `tproducto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `trol`
+--
+
+DROP TABLE IF EXISTS `trol`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `trol` (
+  `IdRol` int(11) NOT NULL AUTO_INCREMENT,
+  `NombreRol` varchar(50) NOT NULL,
+  PRIMARY KEY (`IdRol`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `trol`
+--
+
+LOCK TABLES `trol` WRITE;
+/*!40000 ALTER TABLE `trol` DISABLE KEYS */;
+INSERT INTO `trol` VALUES (1,'Usuario Regular'),(2,'Usuario Administrador');
+/*!40000 ALTER TABLE `trol` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -55,7 +108,10 @@ CREATE TABLE `tusuario` (
   `Correo` varchar(100) NOT NULL,
   `Identificacion` varchar(20) NOT NULL,
   `Contrasenna` varchar(10) NOT NULL,
-  PRIMARY KEY (`IdUsuario`)
+  `IdRol` int(11) NOT NULL,
+  PRIMARY KEY (`IdUsuario`),
+  KEY `FK_tusuario_trol` (`IdRol`),
+  CONSTRAINT `FK_tusuario_trol` FOREIGN KEY (`IdRol`) REFERENCES `trol` (`IdRol`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -65,7 +121,7 @@ CREATE TABLE `tusuario` (
 
 LOCK TABLES `tusuario` WRITE;
 /*!40000 ALTER TABLE `tusuario` DISABLE KEYS */;
-INSERT INTO `tusuario` VALUES (1,'Eduardo Calvo Castillo','ecalvo90415@ufide.ac.cr','304590415','90415'),(2,'Jose David Vargas Rodríguez','jvargas00334@ufide.ac.cr','208700334','N2G52G8U');
+INSERT INTO `tusuario` VALUES (1,'CALVO CASTILLO EDUARDO JOSE','ecalvo90415@ufide.ac.cr','304590415','90415',1),(2,'NAVARRO BARRANTES HEBLYN JOSUE','hnavarro60373@ufide.ac.cr','604460373','60373',2);
 /*!40000 ALTER TABLE `tusuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,6 +145,57 @@ BEGIN
 	UPDATE 	tusuario
 	SET 	Contrasenna = pContrasenna
     WHERE 	IdUsuario = pIdUsuario;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ActualizarPerfilUsuario` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ActualizarPerfilUsuario`(pIdUsuario bigint(11),
+	 pNombre varchar(255),
+	 pCorreo varchar(100),
+     pIdentificacion varchar(20))
+BEGIN
+
+	UPDATE tusuario
+    SET Nombre = pNombre,
+        Correo = pCorreo,
+        Identificacion = pIdentificacion
+	WHERE IdUsuario = pIdUsuario;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `CambiarEstadoProducto` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CambiarEstadoProducto`(pIdProducto bigint(11))
+BEGIN
+
+	UPDATE tproducto
+    SET   Estado = CASE WHEN Estado = 1 THEN 0 ELSE 1 END
+	WHERE IdProducto = pIdProducto;
 
 END ;;
 DELIMITER ;
@@ -123,6 +230,35 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ConsultarProductos` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarProductos`()
+BEGIN
+
+	SELECT 	IdProducto,
+			Nombre,
+			Precio,
+			Descripcion,
+			Cantidad,
+			Estado,
+            (CASE WHEN Estado = 1 THEN 'Activo' ELSE 'Inactivo' END) 'EstadoDescripcion',
+			Imagen
+	FROM 	tproducto;
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `RegistrarError` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -138,6 +274,32 @@ BEGIN
 
 	INSERT INTO terror(Descripcion,FechaHora)
 	VALUES (pDescripcion,NOW());
+
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `RegistrarProducto` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `RegistrarProducto`(pNombre varchar(100),
+	 pDescripcion varchar(1000),
+     pPrecio decimal(10,2),     
+     pCantidad int,
+	 pImagen varchar(255))
+BEGIN
+
+	INSERT INTO tproducto (Nombre,Precio,Descripcion,Cantidad,Estado,Imagen)
+	VALUES (pNombre,pPrecio,pDescripcion,pCantidad,1,pImagen);
 
 END ;;
 DELIMITER ;
@@ -161,8 +323,8 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `RegistrarUsuario`(pNombre varchar(2
      pContrasenna varchar(10))
 BEGIN
 
-	INSERT INTO tusuario(Nombre,Correo,Identificacion,Contrasenna)
-	VALUES (pNombre,pCorreo,pIdentificacion,pContrasenna);
+	INSERT INTO tusuario(Nombre,Correo,Identificacion,Contrasenna,IdRol)
+	VALUES (pNombre,pCorreo,pIdentificacion,pContrasenna,1);
 
 END ;;
 DELIMITER ;
@@ -211,8 +373,12 @@ BEGIN
 	SELECT	IdUsuario,
 			Nombre,
 			Correo,
-			Identificacion
-	FROM 	tusuario
+			Identificacion,
+            Contrasenna,
+            U.IdRol,
+            NombreRol
+	FROM 	tusuario U
+    INNER JOIN trol R ON U.IdRol = R.IdRol
 	WHERE 	Correo = pCorreo
 		AND Contrasenna = pContrasenna;
     
@@ -232,4 +398,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-07-02 21:04:31
+-- Dump completed on 2025-07-16 20:54:59
