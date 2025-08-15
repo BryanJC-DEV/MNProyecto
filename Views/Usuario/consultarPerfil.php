@@ -1,5 +1,5 @@
 <?php
-    include_once $_SERVER["DOCUMENT_ROOT"] . '/MNProyectoViews/layoutInterno.php';
+    include_once $_SERVER["DOCUMENT_ROOT"] . '/MNProyecto/Views/layoutInterno.php';
     include_once $_SERVER["DOCUMENT_ROOT"] . '/MNProyecto/Controllers/usuarioController.php';
 
     if(session_status() == PHP_SESSION_NONE)

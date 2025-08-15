@@ -16,8 +16,8 @@
         require 'PHPMailer/src/PHPMailer.php';
         require 'PHPMailer/src/SMTP.php';
 
-        $correoSalida = "bjaen90254@ufide.ac.cr";
-        $contrasennaSalida = "2IRM_5NGX";
+        $correoSalida = "ecalvo90415@ufide.ac.cr";
+        $contrasennaSalida = "XXXXXXXXXXXX";
 
         $mail = new PHPMailer();
         $mail -> CharSet = 'UTF-8';

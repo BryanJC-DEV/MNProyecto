@@ -2,7 +2,7 @@
     include_once $_SERVER["DOCUMENT_ROOT"] . '/MNProyecto/Views/layoutInterno.php';
     include_once $_SERVER["DOCUMENT_ROOT"] . '/MNProyecto/Controllers/productoController.php';
 
-    $resultado = ConsultarProductos();
+    $resultado = ConsultarProductos(-1);
 ?>
 
 <!DOCTYPE html>
@@ -144,7 +144,7 @@
     ?>
 
     <script>
-    $(document).ready(function() {
+    $(function() {
 
         new DataTable('#tablaDatos', {
             language: {

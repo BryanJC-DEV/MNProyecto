@@ -1,13 +1,13 @@
 <?php
     include_once $_SERVER["DOCUMENT_ROOT"] . '/MNProyecto/Models/connect.php';
 
-    function ConsultarProductosModel()
+    function ConsultarProductosModel($Filtro)
     {
         try
         {
             $context = OpenDB();
 
-            $sp = "CALL ConsultarProductos()";
+            $sp = "CALL ConsultarProductos('$Filtro')";
             $respuesta = $context -> query($sp);
 
             CloseDB($context);            
