@@ -6,7 +6,7 @@
         session_start();
     }
 
-    if ($_POST["Accion"] == "AgregarCarrito" && isset($_POST["IdProducto"])) {
+    if (isset($_POST["Accion"]) && $_POST["Accion"] == "AgregarCarrito") {
         AgregarCarrito($_POST["IdProducto"]);
     }
 
@@ -19,12 +19,53 @@
 
         if($respuesta)
         {
-            header("location: ../../Views/Producto/consultarProductos.php");
+            echo "OK";
         }
         else
         {
-            $_POST["txtMensaje"] = "El producto no fue registrado correctamente.";
+            echo "El producto no fue agregado a su carrito.";
         }
     }  
+
+    function ConsultarCarrito()
+    {
+        $idUsuario = $_SESSION["IdUsuario"];
+        return ConsultarCarritoModel($idUsuario);
+    }
+
+    function ConsultarResumenCarrito()
+    {
+        $idUsuario = $_SESSION["IdUsuario"];
+        $respuesta = ConsultarResumenCarritoModel($idUsuario);
+    
+        if($respuesta != null && $respuesta -> num_rows > 0)
+        {
+            $datos = mysqli_fetch_array($respuesta);
+            $_SESSION["Total"] = $datos["Total"];
+            $_SESSION["Cantidad"] = $datos["Cantidad"];
+        }
+    }
+
+    if (isset($_POST["Accion"]) && $_POST["Accion"] == "EliminarProductoCarrito") {
+        EliminarProductoCarrito($_POST["IdProducto"]);
+    }
+
+    function EliminarProductoCarrito($IdProducto)
+    {   
+        $idUsuario = $_SESSION["IdUsuario"];
+        $idProducto = $IdProducto;
+
+        $respuesta = EliminarProductoCarritoModel($idUsuario, $idProducto);
+
+        if($respuesta)
+        {
+            ConsultarResumenCarrito();
+            echo "OK";
+        }
+        else
+        {
+            echo "El producto no fue eliminado de su carrito.";
+        }
+    }     
 
 ?>
