@@ -33,6 +33,17 @@
         return ConsultarCarritoModel($idUsuario);
     }
 
+    function ConsultarCompras()
+    {
+        $idUsuario = $_SESSION["IdUsuario"];
+        return ConsultarComprasModel($idUsuario);
+    }
+
+    function ConsultarDetalleCompra($IdMaestro)
+    {
+        return ConsultarDetalleCompraModel($IdMaestro);
+    }    
+
     function ConsultarResumenCarrito()
     {
         $idUsuario = $_SESSION["IdUsuario"];
@@ -66,6 +77,46 @@
         {
             echo "El producto no fue eliminado de su carrito.";
         }
-    }     
+    }   
+    
+    if (isset($_POST["Accion"]) && $_POST["Accion"] == "ProcesarPagoCarrito") {
+        RealizarPagoCarrito();
+    }
+
+    function RealizarPagoCarrito()
+    {
+        $idUsuario = $_SESSION["IdUsuario"];
+
+        $respuesta = RealizarPagoCarritoModel($idUsuario);
+
+        if($respuesta)
+        {
+            ConsultarResumenCarrito();
+            echo "OK";
+        }
+        else
+        {
+            echo "El carrito no fue cancelado correctamente.";
+        }
+
+    }
+
+
+
+    function ConsultarProductosTop()
+    {
+        return ConsultarProductosTopModel();
+    } 
+
+    function ConsultarClientesTop()
+    {
+        return ConsultarClientesTopModel();
+    } 
+
+    function ConsultarResumenTop()
+    {
+        $respuesta = ConsultarResumenTopModel();
+        return mysqli_fetch_array($respuesta);
+    } 
 
 ?>

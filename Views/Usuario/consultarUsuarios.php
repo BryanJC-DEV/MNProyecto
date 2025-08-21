@@ -1,6 +1,6 @@
 <?php
-    include_once $_SERVER["DOCUMENT_ROOT"] . '/MNProyecto/Views/layoutInterno.php';
-    include_once $_SERVER["DOCUMENT_ROOT"] . '/MNProyecto/Controllers/usuarioController.php';
+    include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Views/layoutInterno.php';
+    include_once $_SERVER["DOCUMENT_ROOT"] . '/Curso/Controllers/usuarioController.php';
 
     $resultado = ConsultarUsuarios();
 ?>
